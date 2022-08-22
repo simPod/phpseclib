@@ -2713,7 +2713,7 @@ class SSH2
         $this->send_binary_packet($packet);
 
         $response = $this->get_channel_packet(self::CHANNEL_SHELL);
-        if ($response === false) {
+        if (is_bool($response)) {
             throw new \RuntimeException('Unable to request shell');
         }
 
